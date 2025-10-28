@@ -50,7 +50,7 @@ body {
 }
 
 .glass-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 /* ---- Navbar ---- */
@@ -59,9 +59,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 5px 15px var(--shadow);
+  box-shadow: 0 10px 15px var(--shadow);
   z-index: 1000;
 }
 
@@ -70,6 +70,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
+  margin: 10px;
 }
 
 .logo {
