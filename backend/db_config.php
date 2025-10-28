@@ -4,11 +4,10 @@
 // ===============================
 
 // InfinityFree MySQL details
-$servername = "sqlXXX.epizy.com";     // ⚠️ Replace XXX with your actual server name (e.g. sql210.epizy.com)
-$username   = "epiz_XXXXXXXX";        // ⚠️ Replace with your InfinityFree username
-$password   = "YourPasswordHere";     // ⚠️ Replace with your InfinityFree DB password
-$dbname     = "epiz_XXXXXXXX_portfolio_db";  // ⚠️ Replace with your database name
-
+$servername = "sql213.byetcluster.com";  // 👈 from "Server" in your screenshot
+$username   = "if0_40272460";            // 👈 same as database prefix
+$password   = "am0099os1801";        // 👈 the DB password you set in InfinityFree
+$dbname     = "if0_40272460_user_data";  // 👈 from "Database" in your screenshot
 // Create Connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
