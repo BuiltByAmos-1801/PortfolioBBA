@@ -1,0 +1,21 @@
+name: 🚀 Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload to InfinityFree via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.epizy.com              # ⚠️ replace with your FTP host
+          username: epiz_12345678            # ⚠️ replace with your FTP username
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /htdocs/               # target folder on server
