@@ -1,12 +1,22 @@
 <?php
-$servername = "sqlXXX.epizy.com";   // Replace with your host
-$username   = "epiz_XXXXXXX";       // Replace with your username
-$password   = "YOUR_PASSWORD";      // Replace with your password
-$dbname     = "epiz_XXXXXXX_portfolio_db"; // Replace with your DB name
+// ===============================
+// Database Configuration File
+// ===============================
 
+// InfinityFree MySQL details
+$servername = "sqlXXX.epizy.com";     // ⚠️ Replace XXX with your actual server name (e.g. sql210.epizy.com)
+$username   = "epiz_XXXXXXXX";        // ⚠️ Replace with your InfinityFree username
+$password   = "YourPasswordHere";     // ⚠️ Replace with your InfinityFree DB password
+$dbname     = "epiz_XXXXXXXX_portfolio_db";  // ⚠️ Replace with your database name
+
+// Create Connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check Connection
 if ($conn->connect_error) {
-  die("❌ Connection failed: " . $conn->connect_error);
+    die("❌ Connection failed: " . $conn->connect_error);
+} else {
+    // Optional: for quick debug
+    // echo "✅ Database Connected Successfully!";
 }
 ?>
