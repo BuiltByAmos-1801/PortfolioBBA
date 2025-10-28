@@ -8,17 +8,19 @@ on:
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Upload files to InfinityFree via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload via FTP to InfinityFree
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ftpupload.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
           protocol: ftp
-          local-dir: ./
+          port: 21
           server-dir: /htdocs/
+          local-dir: ./frontend/
+          log-level: verbose
