@@ -5,7 +5,7 @@
 
 // ====== SMOOTH SCROLL ======
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
+  anchor.addEventListener("click", function(e) {
     e.preventDefault();
     document.querySelector(this.getAttribute("href")).scrollIntoView({
       behavior: "smooth",
@@ -32,7 +32,7 @@ if (typeText) {
   const fullText = typeText.textContent;
   let index = 0;
   typeText.textContent = "";
-
+  
   function typeWriter() {
     if (index < fullText.length) {
       typeText.textContent += fullText.charAt(index);
@@ -84,13 +84,13 @@ if (contactForm) {
     const nameInput = contactForm.querySelector("#name");
     const emailInput = contactForm.querySelector("#email");
     const messageInput = contactForm.querySelector("#message");
-
+    
     if (!nameInput.value || !emailInput.value || !messageInput.value) {
       alert("Please fill out all fields before submitting.");
       e.preventDefault();
       return;
     }
-
+    
     alert("Thank you, " + nameInput.value + "! Your message has been sent successfully 💌");
   });
 }
@@ -163,3 +163,30 @@ styleEl.textContent = `
   }
 `;
 document.head.appendChild(styleEl);
+
+// Simple reveal on scroll for about page elements
+(function() {
+  const opts = { threshold: 0.15 };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, opts);
+  
+  document.querySelectorAll('.about-hero, .about-section, .stat-card').forEach(el => {
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    io.observe(el);
+  });
+  
+  // when element gets .in-view apply styles
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `
+    .in-view { opacity: 1 !important; transform: translateY(0) !important; }
+  `;
+  document.head.appendChild(styleEl);
+})();
